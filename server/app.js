@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-const api = require('/api')
+const api = require('./api')
 const morgan = require('morgan') // logger
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-app.set('port', (porcess.env.PORT || 8081))
+app.set('port', (process.env.PORT || 8081))
 
 app.use(bodyParser.json)
 app.use(bodyParser.urlencoded({ extended: false }))
