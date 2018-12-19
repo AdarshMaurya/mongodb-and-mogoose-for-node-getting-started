@@ -9,6 +9,7 @@ const standupSchema = new mongoose.Schema({
     createdOn: { type: Date, default: Date.now }
 })
 
+module.exports = mongoose.model('Standup', standupSchema)
 
 
 // // Disabled _id schema example
