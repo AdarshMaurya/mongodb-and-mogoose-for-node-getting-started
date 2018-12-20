@@ -12,6 +12,7 @@ const standupSchema = new mongoose.Schema({
 module.exports = mongoose.model('Standup', standupSchema)
 
 
+
 // // Disabled _id schema example
 // const noIdSchema = new mongoose.Schema(
 //     { name: String },
