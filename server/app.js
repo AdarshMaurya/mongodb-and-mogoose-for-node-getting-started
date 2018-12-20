@@ -24,6 +24,14 @@ app.use(function (req, res) {
 })
 
 // Add MongoDB connection in later...first just run app.listen (below)
-app.listen(app.get('port'), function () {
-    console.log('API Server Listening on port ' + app.get('port') + '!')
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/virtualstandups', { userNewUrlParser: true })
+
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
+    app.listen(app.get('port'), function () {
+        console.log('API Server Listening on port ' + app.get('port') + '!')
+    })
 })
+

@@ -1,4 +1,4 @@
-
+const TeamMembers = require('../../models/teamMember')
 
 module.exports = function (router) {
     // Get: List of Team Members
@@ -6,3 +6,14 @@ module.exports = function (router) {
 
     })
 }
+
+// POST: Create TeamMembers...
+router.post('/team', function (req, res) {
+    let member = new TeamMembers(req.body)
+    member.save(function (err, member) {
+        if (err) {
+            return res.status(400).json(err)
+        }
+        res.status(200).json(member)
+    })
+})
